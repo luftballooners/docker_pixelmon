@@ -10,9 +10,9 @@ EXPOSE 25565
 # Download and unzip minecraft files
 RUN apk update && apk add curl wget && \
     mkdir -p /minecraft/world && \
-    curl -LO https://media.forgecdn.net/files/2706/808/SkyFactory_4_Server_4.0.5.zip && \
-    unzip SkyFactory_4_Server_4.0.5.zip && \
-    rm SkyFactory_4_Server_4.0.5.zip
+    curl -LO https://media.forgecdn.net/files/2725/984/SkyFactory_4_Server_4.0.8.zip && \
+    unzip SkyFactory_4_Server_4.0.8.zip && \
+    rm SkyFactory_4_Server_4.0.8.zip
     
 # Accept EULA
 RUN echo "# EULA accepted on $(date)" > /minecraft/eula.txt && \
