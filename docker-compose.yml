@@ -1,0 +1,7 @@
+version: '3'
+services:
+    minecraft:
+        build: github.com/lumafly/docker_pixelmon.git
+        ports: 
+            - "25565:25565"
+        hostname: "minecraft-pixelmon"
