@@ -11,7 +11,7 @@ VOLUME ["/minecraft/world"]
 EXPOSE 25565
 
 # Download and unzip minecraft files
-RUN apk update && apk add curl wget && \
+RUN apk update && apk add curl wget bash && \
     mkdir -p /minecraft/world && \
     wget -O forge-installer.jar https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2854/forge-1.12.2-14.23.5.2854-installer.jar && \
     wget -O pixelmon.jar https://download.nodecdn.net/containers/reforged/server/release/8.0.2/Pixelmon-1.12.2-8.0.2-server.jar
@@ -25,9 +25,5 @@ RUN echo "# EULA accepted on $(date)" > /minecraft/eula.txt && \
 RUN mkdir -p /minecraft/mods/mods-available && \
 	mv pixelmon.jar /minecraft/mods/pixelmon.jar
 
-COPY server.sh /minecraft/server.sh
-
-RM forge-installer.jar
-
 # Startup script
-CMD ["/bin/sh", "/minecraft/server.sh"] 
+CMD ["/bin/bash", "/minecraft/server.sh"] 
